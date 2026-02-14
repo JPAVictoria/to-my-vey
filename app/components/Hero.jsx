@@ -121,7 +121,7 @@ export default function Hero() {
         }}
       >
         <VideoBackground autoPlay loop muted playsInline>
-          <source src="/baby.mov" type="video/mp4" />
+          <source src="/bg.mov" type="video/mp4" />
           Your browser does not support the video tag.
         </VideoBackground>
 
