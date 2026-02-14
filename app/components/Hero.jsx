@@ -121,7 +121,7 @@ export default function Hero() {
         }}
       >
         <VideoBackground autoPlay loop muted playsInline>
-          <source src="/sample-video.mp4" type="video/mp4" />
+          <source src="/baby.mov" type="video/mp4" />
           Your browser does not support the video tag.
         </VideoBackground>
 
@@ -144,7 +144,7 @@ export default function Hero() {
             sx={{ alignItems: "center", width: { xs: "100%", sm: "70%" } }}
           >
             <AnimatedTitle>
-              <CursiveText text="Kano Kabana" delay={0} />
+              <CursiveText text="To my Vey," delay={0} />
             </AnimatedTitle>
 
             <motion.div
@@ -160,87 +160,7 @@ export default function Hero() {
                   mx: "auto",
                 }}
               >
-                Located in Mariveles, Bataan, Kano Kabana offers a one-of-a-kind
-                destination that blends comfort, local charm, scenic beauty, and
-                unforgettable experiences.
-              </Typography>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 2.5, ease: "easeOut" }}
-              style={{ width: "100%" }}
-            >
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                spacing={1}
-                useFlexGap
-                sx={{ pt: 2, width: { xs: "100%", sm: "350px" }, mx: "auto" }}
-              >
-                <InputLabel htmlFor="email-hero" sx={visuallyHidden}>
-                  Email
-                </InputLabel>
-                <TextField
-                  id="email-hero"
-                  hiddenLabel
-                  size="small"
-                  variant="outlined"
-                  aria-label="Enter your email address"
-                  placeholder="Your email address"
-                  fullWidth
-                  slotProps={{
-                    htmlInput: {
-                      autoComplete: "off",
-                      "aria-label": "Enter your email address",
-                    },
-                  }}
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      backgroundColor: "rgba(255, 255, 255, 0.9)",
-                      "&:hover": {
-                        backgroundColor: "rgba(255, 255, 255, 0.95)",
-                      },
-                    },
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  size="small"
-                  sx={{
-                    minWidth: "fit-content",
-                    border: "0",
-                    background:
-                      "linear-gradient(135deg, #FD7A31 0%, #FF6B1A 50%, #E85A00 100%)",
-                    color: "white",
-                    fontWeight: "600",
-                    boxShadow: "0 4px 15px rgba(253, 122, 49, 0.3)",
-                    "&:hover": {
-                      background:
-                        "linear-gradient(135deg, #FF6B1A 0%, #FD7A31 50%, #FF8F4A 100%)",
-                      boxShadow: "0 6px 20px rgba(253, 122, 49, 0.4)",
-                      transform: "translateY(-2px)",
-                    },
-                    transition: "all 0.3s ease-in-out",
-                  }}
-                >
-                  Start now
-                </Button>
-              </Stack>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 3, ease: "easeOut" }}
-            >
-              <Typography
-                variant="caption"
-                color="rgba(255, 255, 255, 0.7)"
-                sx={{ textAlign: "center" }}
-              >
-                By clicking &quot;Start now&quot; you agree to be part of our
-                community
+                The strongest and most beautiful girl I know. 
               </Typography>
             </motion.div>
           </Stack>
