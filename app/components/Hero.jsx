@@ -11,6 +11,8 @@ import Typography from "@mui/material/Typography";
 import visuallyHidden from "@mui/utils/visuallyHidden";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
+import Transition from "./Transition";
+// import MemoryLane from "./MemoryLane"; // Uncomment when you create MemoryLane component
 
 const VideoBackground = styled("video")(({ theme }) => ({
   position: "absolute",
@@ -104,6 +106,19 @@ const CursiveText = ({ text, delay = 0 }) => {
 };
 
 export default function Hero() {
+  const [showTransition, setShowTransition] = React.useState(false);
+  const [showMemoryLane, setShowMemoryLane] = React.useState(false);
+
+  const handleMemoryLaneClick = (e) => {
+    e.preventDefault();
+    setShowTransition(true);
+  };
+
+  const handleTransitionComplete = () => {
+    setShowTransition(false);
+    setShowMemoryLane(true);
+  };
+
   return (
     <>
       <link
@@ -111,84 +126,118 @@ export default function Hero() {
         rel="stylesheet"
       />
 
-      <Box
-        id="hero"
-        sx={{
-          width: "100%",
-          height: "100vh",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <VideoBackground autoPlay loop muted playsInline>
-          <source src="/bg.mov" type="video/mp4" />
-          Your browser does not support the video tag.
-        </VideoBackground>
+      <Transition show={showTransition} onComplete={handleTransitionComplete} />
 
-        <VideoOverlay />
-
-        <Container
+      {!showMemoryLane ? (
+        <Box
+          id="hero"
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
+            width: "100%",
+            height: "100vh",
             position: "relative",
-            zIndex: 1,
+            overflow: "hidden",
           }}
         >
-          <Stack
-            spacing={2}
-            useFlexGap
-            sx={{ alignItems: "center", width: { xs: "100%", sm: "70%" } }}
-          >
-            <AnimatedTitle>
-              <CursiveText text="To my Vey," delay={0} />
-            </AnimatedTitle>
+          <VideoBackground autoPlay loop muted playsInline>
+            <source src="/bg.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </VideoBackground>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 2, ease: "easeOut" }}
+          <VideoOverlay />
+
+          <Container
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            <Stack
+              spacing={2}
+              useFlexGap
+              sx={{ alignItems: "center", width: { xs: "100%", sm: "70%" } }}
             >
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  color: "rgba(255, 192, 203, 0.95)",
-                  width: { sm: "100%", md: "80%" },
-                  mx: "auto",
-                }}
+              <AnimatedTitle>
+                <CursiveText text="To my Vey," delay={0} />
+              </AnimatedTitle>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 2, ease: "easeOut" }}
               >
-                Your strength amazes me every day, and your beauty takes my
-                breath away. Thank you for being you, Mahal.
-              </Typography>
-            </motion.div>
-            <motion.div
-            className="mt-10"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
+                <Typography
+                  sx={{
+                    textAlign: "center",
+                    color: "rgba(255, 192, 203, 0.95)",
+                    width: { sm: "100%", md: "80%" },
+                    mx: "auto",
+                  }}
+                >
+                  Your strength amazes me every day, and your beauty takes my
+                  breath away. Happy Valentine's Day, Mahal.
+                </Typography>
+              </motion.div>
+
+              <motion.div
+                style={{ marginTop: "40px" }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
+              >
+                <Typography
+                  component="a"
+                  href="#memories"
+                  onClick={handleMemoryLaneClick}
+                  sx={{
+                    color: "#FF69B4",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                    fontSize: "1.1rem",
+                    "&:hover": {
+                      color: "#FF1493",
+                    },
+                  }}
+                >
+                  Want to dive into our memory lane? →
+                </Typography>
+              </motion.div>
+            </Stack>
+          </Container>
+        </Box>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          {/* <MemoryLane /> */}
+          <Box
+            sx={{
+              width: "100%",
+              height: "100vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "#000",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#FF69B4",
+                fontSize: "2rem",
+                fontFamily: '"Pacifico", cursive',
+              }}
             >
-              <Typography
-                component="a"
-                href="#memories"
-                sx={{
-                  color: "#FF69B4",
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  fontSize: "1.1rem",
-                  "&:hover": {
-                    color: "#FF1493",
-                  },
-                }}
-              >
-                Want to dive into our memory lane?
-              </Typography>
-            </motion.div>
-          </Stack>
-        </Container>
-      </Box>
+              Memory Lane Component Goes Here
+            </Typography>
+          </Box>
+        </motion.div>
+      )}
     </>
   );
 }
