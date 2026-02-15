@@ -25,7 +25,7 @@ export const metadata = {
   authors: [
     {
       name: "Your Loving Boyfriend",
-      url: "https://github.com/your-profile",
+      url: "https://github.com/JPAVictoria",
     },
   ],
   creator: "Made with ❤️ for the most amazing girl",
@@ -33,11 +33,11 @@ export const metadata = {
     title: "Happy Valentine's Day, My Love ❤️",
     description:
       "A special surprise crafted just for you this Valentine's Day. You mean the world to me. 💕",
-    url: "https://your-deployment-url.vercel.app",
+    url: "https://to-my-vey.vercel.app",
     siteName: "Valentine's Gift",
     images: [
       {
-        url: "https://your-deployment-url.vercel.app/preview.png",
+        url: "https://to-my-vey.vercel.app/memory6.jpg",
         width: 1200,
         height: 630,
         alt: "Valentine's Day Special - Made with Love",
