@@ -7,25 +7,25 @@ export const memories = [
   },
   {
     image: "/memory2.jpg",
-    title: "That Rainy Afternoon",
+    title: "First Monthsary",
     description:
       "We got caught in the rain and instead of running for cover, we just laughed and danced. In that moment, I realized that with you, even the unexpected moments become my favorite memories.",
   },
   {
     image: "/memory3.jpg",
-    title: "Your Birthday Surprise",
+    title: "Second Monthsary",
     description:
       "The look on your face when you saw the surprise made all the planning worth it. Seeing you happy is my favorite thing in the world, and I'll never stop trying to put that smile on your face.",
   },
   {
     image: "/memory4.jpg",
-    title: "Late Night Conversations",
+    title: "Third Monthsary",
     description:
       "Talking to you until 3 AM never feels long enough. Those deep conversations, the laughter, the comfortable silence—these are the moments I cherish the most.",
   },
   {
     image: "/memory5.jpg",
-    title: "Our Adventure Together",
+    title: "Intramuros",
     description:
       "Every adventure with you is my favorite adventure. Whether we're exploring new places or just walking around the neighborhood, being with you makes everything feel like home.",
   },

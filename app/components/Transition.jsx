@@ -12,10 +12,12 @@ const TransitionContainer = styled(motion.div)({
   width: "100%",
   height: "100vh",
   display: "flex",
+  flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
   backgroundColor: "#000",
   zIndex: 9999,
+  gap: "40px",
 });
 
 const TransitionText = styled(motion.h1)({
@@ -24,6 +26,20 @@ const TransitionText = styled(motion.h1)({
   color: "#FF69B4",
   textAlign: "center",
   letterSpacing: "0.05em",
+  padding: "0 20px",
+});
+
+const DotsContainer = styled("div")({
+  display: "flex",
+  gap: "15px",
+  alignItems: "center",
+});
+
+const Dot = styled(motion.div)({
+  width: "15px",
+  height: "15px",
+  borderRadius: "50%",
+  backgroundColor: "#FF69B4",
 });
 
 export default function Transition({ show, onComplete }) {
@@ -36,6 +52,11 @@ export default function Transition({ show, onComplete }) {
       return () => clearTimeout(timer);
     }
   }, [show, onComplete]);
+
+  const dotVariants = {
+    initial: { y: 0 },
+    animate: { y: -20 },
+  };
 
   return (
     <AnimatePresence>
@@ -52,8 +73,25 @@ export default function Transition({ show, onComplete }) {
             exit={{ scale: 1.2, opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            Let's take a trip down memory lane...
+            Let's take a trip down memory lane
           </TransitionText>
+
+          <DotsContainer>
+            {[0, 1, 2].map((index) => (
+              <Dot
+                key={index}
+                variants={dotVariants}
+                initial="initial"
+                animate="animate"
+                transition={{
+                  duration: 0.6,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  delay: index * 0.2,
+                }}
+              />
+            ))}
+          </DotsContainer>
         </TransitionContainer>
       )}
     </AnimatePresence>

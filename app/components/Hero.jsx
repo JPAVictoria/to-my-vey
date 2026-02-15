@@ -186,6 +186,7 @@ export default function Hero() {
               <motion.div
                 style={{ marginTop: "40px" }}
                 initial={{ opacity: 0, y: 30 }}
+                className="cursor-pointer"
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
               >
@@ -203,7 +204,7 @@ export default function Hero() {
                     },
                   }}
                 >
-                  Want to dive into our memory lane? →
+                  Want to dive into our memory lane?
                 </Typography>
               </motion.div>
             </Stack>

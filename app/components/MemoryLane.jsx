@@ -49,6 +49,16 @@ const MemoryImage = styled("img")({
   },
 });
 
+const MemoryVideo = styled("video")({
+  width: "100%",
+  height: "400px",
+  objectFit: "cover",
+  display: "block",
+  "@media (max-width: 768px)": {
+    height: "300px",
+  },
+});
+
 const ContentWrapper = styled(motion.div)({
   flex: "1",
 });
@@ -132,13 +142,13 @@ export default function MemoryLane() {
           transition={{ duration: 1 }}
         >
           <MainTitle>Our Memory Lane</MainTitle>
-          <Subtitle>Every moment with you is a treasure</Subtitle>
         </Header>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          style={{ marginTop: "30px" }}
         >
           {memories.map((memory, index) => (
             <MemoryCard
@@ -147,7 +157,13 @@ export default function MemoryLane() {
               variants={cardVariants}
             >
               <ImageWrapper variants={imageVariants}>
-                <MemoryImage src={memory.image} alt={memory.title} />
+                {memory.type === "video" ? (
+                  <MemoryVideo autoPlay loop muted playsInline>
+                    <source src={memory.image} type="video/mp4" />
+                  </MemoryVideo>
+                ) : (
+                  <MemoryImage src={memory.image} alt={memory.title} />
+                )}
               </ImageWrapper>
 
               <ContentWrapper>
@@ -156,6 +172,24 @@ export default function MemoryLane() {
               </ContentWrapper>
             </MemoryCard>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          style={{ textAlign: "center", marginTop: "60px" }}
+        >
+          <Typography
+            sx={{
+              fontFamily: '"Pacifico", cursive',
+              fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
+              color: "#FF69B4",
+              letterSpacing: "0.05em",
+            }}
+          >
+            And to many more...I LOVE YOU
+          </Typography>
         </motion.div>
       </Container>
     </MemoryContainer>
