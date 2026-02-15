@@ -36,7 +36,7 @@ const VideoOverlay = styled("div")(({ theme }) => ({
 const AnimatedTitle = styled(motion.div)({
   fontFamily: '"Pacifico", cursive',
   fontSize: "clamp(3rem, 10vw, 3.5rem)",
-  color: "white",
+  color: "#FF69B4",
   textAlign: "center",
   letterSpacing: "0.05em",
   position: "relative",
@@ -82,7 +82,7 @@ const CursiveText = ({ text, delay = 0 }) => {
 
   return (
     <motion.div
-      style={{ display: "inline-block", overflow: "hidden" }}
+      style={{ display: "inline-block" }}
       variants={container}
       initial="hidden"
       animate="visible"
@@ -155,12 +155,35 @@ export default function Hero() {
               <Typography
                 sx={{
                   textAlign: "center",
-                  color: "rgba(255, 255, 255, 0.8)",
+                  color: "rgba(255, 192, 203, 0.95)",
                   width: { sm: "100%", md: "80%" },
                   mx: "auto",
                 }}
               >
-                The strongest and most beautiful girl I know. 
+                Your strength amazes me every day, and your beauty takes my
+                breath away. Thank you for being you, Mahal.
+              </Typography>
+            </motion.div>
+            <motion.div
+            className="mt-10"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
+            >
+              <Typography
+                component="a"
+                href="#memories"
+                sx={{
+                  color: "#FF69B4",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "1.1rem",
+                  "&:hover": {
+                    color: "#FF1493",
+                  },
+                }}
+              >
+                Want to dive into our memory lane?
               </Typography>
             </motion.div>
           </Stack>
