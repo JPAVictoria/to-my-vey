@@ -160,6 +160,8 @@ export default function MemoryLane() {
                 {memory.type === "video" ? (
                   <MemoryVideo autoPlay loop muted playsInline>
                     <source src={memory.image} type="video/mp4" />
+                    <source src={memory.image} type="video/quicktime" />
+                    Your browser does not support the video tag.
                   </MemoryVideo>
                 ) : (
                   <MemoryImage src={memory.image} alt={memory.title} />
