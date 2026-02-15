@@ -12,7 +12,7 @@ import visuallyHidden from "@mui/utils/visuallyHidden";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import Transition from "./Transition";
-// import MemoryLane from "./MemoryLane"; // Uncomment when you create MemoryLane component
+import MemoryLane from "./MemoryLane"; // Uncomment when you create MemoryLane component
 
 const VideoBackground = styled("video")(({ theme }) => ({
   position: "absolute",
@@ -216,26 +216,7 @@ export default function Hero() {
           transition={{ duration: 1 }}
         >
           {/* <MemoryLane /> */}
-          <Box
-            sx={{
-              width: "100%",
-              height: "100vh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "#000",
-            }}
-          >
-            <Typography
-              sx={{
-                color: "#FF69B4",
-                fontSize: "2rem",
-                fontFamily: '"Pacifico", cursive',
-              }}
-            >
-              Memory Lane Component Goes Here
-            </Typography>
-          </Box>
+          <MemoryLane />
         </motion.div>
       )}
     </>
